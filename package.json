@@ -1,0 +1,8 @@
+{
+    "name": "mongodb-importer",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongodb": ">=1.3.20",
+        "line-reader": ">=0.2.3"
+    }
+}
