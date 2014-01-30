@@ -1,13 +1,13 @@
 {
-    "name": "mongodb-importer",
-    "description": "Asynchronous batch importer for MongoDB",
+    "name": "kersey",
+    "description": "An engine for easy, flexible batch importation into MongoDB.",
     "version": "0.0.1",
     "dependencies": {
         "mongodb": ">=1.3.20",
         "line-reader": ">=0.2.3"
     },
-    "main": "./lib/mongodb-importer.js",
-	"url": "https://github.com/mpatkisson/mongodb-importer",
+    "main": "./lib/kersey.js",
+	"url": "https://github.com/mpatkisson/kersey",
 	"keywords": [
 		"mongodb",
 		"batch",
@@ -22,12 +22,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://mpatkisson@github.com/mpatkisson/mongodb-importer.git"
+		"url": "https://mpatkisson@github.com/mpatkisson/kersey.git"
 	},
 	"readmeFilename": "README.md",
 	"bugs": {
-		"url": "https://github.com/mpatkisson/mongodb-importer/issues"
+		"url": "https://github.com/mpatkisson/kersey/issues"
 	},
-	"_id": "mongodb-importer@0.0.1",
-	"_from": "line-reader@0.0.1"
+	"_id": "kersey@0.0.1",
+	"_from": "kersey@0.0.1"
 }
