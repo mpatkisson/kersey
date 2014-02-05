@@ -21,7 +21,7 @@ describe('inserter', function () {
         });
     });
 
-    describe('#insert()', function () {
+    describe('#queue()', function () {
         it('should not insert records before batch threshold is met', function (done) {
             var record = {a: 1};
 
@@ -34,7 +34,7 @@ describe('inserter', function () {
                 done();
             }
 
-            tested.insert(record, false, queued);
+            tested.queue(record, false, queued);
         });
     });
 });
