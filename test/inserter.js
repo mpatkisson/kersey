@@ -5,7 +5,7 @@ var assert = require('assert'),
     Server = require('mongodb').Server,
     inserter = require('../lib/inserter');
 
-describe('inserter', function () {
+describe('inserte', function () {
     'use strict';
 
     var host = 'localhost',
