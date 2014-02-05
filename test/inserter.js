@@ -1,4 +1,4 @@
-/*global describe,beforeEach,it */
+/*global describe,afterEach,it */
 
 var assert = require('assert'),
     MongoClient = require('mongodb').MongoClient,
