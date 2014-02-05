@@ -20,9 +20,9 @@
         callback(null, record);
     }
 
-    var importer = require('../lib/mongodb-importer'),
+    var importer = require('../lib/kersey'),
         options = {
-            database: 'mongodb-importer',
+            database: 'kersey',
             collection: 'images',
             filename: './data/HotelImageList.sample',
             threshold: 10000,
