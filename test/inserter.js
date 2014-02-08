@@ -9,33 +9,32 @@ var assert = require('assert'),
 describe('inserter', function () {
     'use strict';
 
-    var host = config.host,
-        port = config.port,
-        database = config.database,
-        collection = config.collection,
-        tested = inserter.create({
-            host: host,
-            port: port,
-            database: database,
-            collection: collection,
-            threshold: 2
-        });
+    var tested = inserter.create({
+        host: config.host,
+        port: config.port,
+        database: config.database,
+        collection: config.collection,
+        threshold: 2
+    });
 
     afterEach(function (done) {
-        var server = new Server(host, port),
+        var server = new Server(config.host, config.port),
             client = new MongoClient(server);
+
+        function removed(err, count) {
+            if (err) {
+                throw err;
+            }
+            assert.ok(count >= 0);
+            done();
+        }
+
         client.open(function (err, opened) {
             if (err) {
                 throw err;
             }
-            var db = opened.db(database);
-            db.collection(collection).remove(null, {w: 1}, function (err, removed) {
-                if (err) {
-                    throw err;
-                }
-                assert.ok(removed >= 0);
-                done();
-            });
+            var db = opened.db(config.database);
+            db.collection(config.collection).remove(null, {w: 1}, removed);
         });
 
     });
