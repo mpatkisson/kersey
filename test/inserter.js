@@ -3,15 +3,16 @@
 var assert = require('assert'),
     MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
-    inserter = require('../lib/inserter');
+    inserter = require('../lib/inserter'),
+    config = require('./config');
 
 describe('inserter', function () {
     'use strict';
 
-    var host = 'localhost',
-        port = 27017,
-        database = 'kersey',
-        collection = 'inserter.test',
+    var host = config.host,
+        port = config.port,
+        database = config.database,
+        collection = config.collection,
         tested = inserter.create({
             host: host,
             port: port,
