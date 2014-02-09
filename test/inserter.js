@@ -13,12 +13,12 @@ describe('inserter', function () {
         host: config.host,
         port: config.port,
         database: config.database,
-        collection: config.collection,
+        collection: 'inserter-test',
         threshold: 2
     });
 
     afterEach(function (done) {
-        var server = new Server(config.host, config.port),
+        var server = new Server(tested.host, tested.port),
             client = new MongoClient(server);
 
         function removed(err, count) {
@@ -33,8 +33,8 @@ describe('inserter', function () {
             if (err) {
                 throw err;
             }
-            var db = opened.db(config.database);
-            db.collection(config.collection).remove(null, {w: 1}, removed);
+            var db = opened.db(tested.database);
+            db.collection(tested.collection).remove(null, {w: 1}, removed);
         });
 
     });
