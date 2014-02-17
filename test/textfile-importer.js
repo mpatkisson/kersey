@@ -61,12 +61,16 @@ describe('textfile-importer', function () {
 
     describe('#start()', function () {
         it('should import all records', function (done) {
-            tested.start(function (err, total) {
-                if (err) {
-                    throw err;
-                }
-                assert.ok(tested.saved = total);
-                done();
+            tested.start()
+                  .on('inserted', function (saved, isLast) {
+                    console.log(saved);
+                  })
+                  .on('complete', function (err, total) {
+                    if (err) {
+                        throw err;
+                    }
+                    assert.ok(tested.saved = total);
+                    done();
             });
         });
     });

@@ -52,10 +52,7 @@ describe('inserter', function () {
         it('should not insert records before batch threshold is met', function (done) {
             var record = {a: 1};
 
-            function queued(err, queueSize) {
-                if (err) {
-                    throw err;
-                }
+            function queued(queueSize) {
                 assert.equal(queueSize, 1);
                 done();
             }
@@ -66,10 +63,7 @@ describe('inserter', function () {
         it('should insert records when the batch threshold is met', function (done) {
             var record = {a: 2};
 
-            function queued(err, queueSize) {
-                if (err) {
-                    throw err;
-                }
+            function queued(queueSize) {
                 assert.equal(queueSize, 0);
                 done();
             }
@@ -80,10 +74,7 @@ describe('inserter', function () {
         it('should insert records when isLast is enabled', function (done) {
             var record = {a: 3};
 
-            function queued(err, queueSize) {
-                if (err) {
-                    throw err;
-                }
+            function queued(queueSize) {
                 assert.equal(queueSize, 0);
                 done();
             }
