@@ -1,0 +1,6 @@
+---
+
+- name: Install Vim
+  yum: name=vim-enhanced 
+  sudo: yes
+  tags: nodejs

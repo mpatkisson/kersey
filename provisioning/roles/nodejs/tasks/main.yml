@@ -1,0 +1,30 @@
+#---
+#- name: Import the EPEL key
+#  rpm_key: state=present key=https://fedoraproject.org/static/0608B895.txt
+#  sudo: yes
+#  tags: nodejs
+
+#- name: Install the EPEL repo
+#  command: /bin/rpm -Uvh http://download-i2.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+#  sudo: yes
+#  tags: nodejs  
+
+- name: Install Node
+  yum: name=nodejs enablerepo=epel 
+  sudo: yes
+  tags: nodejs  
+
+- name: Install Node Package Manager
+  yum: name=npm enablerepo=epel 
+  sudo: yes
+  tags: nodejs
+
+- name: Install jslint
+  npm: name=jslint global=yes 
+  sudo: yes
+  tags: nodejs
+
+- name: Install mocha
+  npm: name=mocha global=yes version=1.17.1 
+  sudo: yes
+  tags: nodejs

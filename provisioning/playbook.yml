@@ -1,0 +1,8 @@
+---
+- hosts: all
+  user: vagrant
+
+  roles:
+    - development
+    - nodejs
+    - mongodb

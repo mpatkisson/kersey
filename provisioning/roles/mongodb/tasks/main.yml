@@ -1,0 +1,15 @@
+---
+- name: Copy mongodb repository
+  template: src=../templates/mongodb.repo dest=/etc/yum.repos.d/mongodb.repo owner=root group=root mode=0644
+  sudo: yes
+  tags: mongodb
+
+- name: Install mongodb
+  yum: name=mongodb-org 
+  sudo: yes
+  tags: mongodb
+
+- name: MongoDB | Run mongo daemon
+  sudo: yes
+  service: name=mongod state=started enabled=yes
+  tags: mongodb
